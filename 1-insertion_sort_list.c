@@ -8,41 +8,42 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *tmp, *dan;
+	listint_t *tmp, *dan;
 
-    if (*list == NULL)
-    {
-	    return;
-    }
+	if (*list == NULL)
+	{
+		return;
+	}
 
-    dan = (*list)->next;
+	dan = (*list)->next;
 
-    while (dan != NULL)
-    {
-        tmp = dan;
-        while (tmp->prev != NULL && tmp->n < tmp->prev->n)
-        {
-            if (tmp->next != NULL)
-	    {
-		    tmp->next->prev = tmp->prev;
-	    }
-            tmp->prev->next = tmp->next;
-            tmp->next = tmp->prev;
-            tmp->prev = tmp->prev->prev;
-            if (tmp->prev != NULL)
-	    {
-		    tmp->prev->next = tmp;
-	    }
+	while (dan != NULL)
+	{
+		tmp = dan;
 
-            if (tmp->prev == NULL)
-	    {
-		    *list = tmp;
-	    }
+		while (tmp->prev != NULL && tmp->n < tmp->prev->n)
+		{
+			if (tmp->next != NULL)
+			{
+				tmp->next->prev = tmp->prev;
+			}
+			tmp->prev->next = tmp->next;
+			tmp->next = tmp->prev;
+			tmp->prev = tmp->prev->prev;
+			if (tmp->prev != NULL)
+			{
+				tmp->prev->next = tmp;
+			}
 
-            tmp->next->prev = tmp;
-            print_list(*list);
-        }
-        dan = dan->next;
-    }
+			if (tmp->prev == NULL)
+			{
+				*list = tmp;
+			}
+
+			tmp->next->prev = tmp;
+			print_list(*list);
+		}
+		dan = dan->next;
+	}
 }
 
