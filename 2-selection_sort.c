@@ -14,7 +14,7 @@ void selection_sort(int *array, size_t size)
 	int dan, n;
 	size_t i, j;
 
-	if (array == NULL || size == 0)
+	if (array == NULL || size < 2)
 	{
 		return;
 	}
