@@ -20,19 +20,19 @@ void selection_sort(int *array, size_t size)
 	}
 	for (i = 0; i < size - 1; i++)
 	{
-		n = i;
+		dan = array[i];
 		for (j = i + 1; j < size; j++)
 		{
-			if (array[j] < array[n])
+			if (array[j] < dan)
 			{
+				dan = array[j];
 				n = j;
 			}
 		}
 		if (n != i)
 		{
-			dan = array[i];
-			array[i] = array[n];
-			array[n] = dan;
+			array[n] = array[i];
+			array[i] = dan;
 		}
 		print_array(array, size);
 	}
